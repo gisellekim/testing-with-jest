@@ -29,5 +29,3 @@ global.renderWithRouter = (renderComponent, route) => {
     history,
   }
 }
-
-renderWithRouter(() => <></>, "/")
