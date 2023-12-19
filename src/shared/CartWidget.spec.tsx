@@ -11,7 +11,7 @@ const useCartContextMock = useCartContext as unknown as jest.Mock<
 >
 
 describe("CartWidget", () => {
-  it.todo("shows the amount of products in the cart", () => {})
+  it("shows the amount of products in the cart", () => {})
   it("navigates to cart summary page on click", () => {
     useCartContextMock.mockReturnValue({
       products: [
