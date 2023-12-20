@@ -25,7 +25,7 @@ describe("ProductCard", () => {
     })
     const { container, getByRole } = render(<ProductCard datum={product} />)
     expect(container.innerHTML).toMatch("Product Giselle")
-    expect(container.innerHTML).toMatch("50")
+    expect(container.innerHTML).toMatch("50 Zm")
     expect(getByRole("img")).toHaveAttribute("src", "/product.png")
   })
 
