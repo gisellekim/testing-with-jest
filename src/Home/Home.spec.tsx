@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react"
-import { useProducts } from "./useProducts"
 import { Home } from "./Home"
-import { ProductCardProps } from "./ProductCard"
 import { Category } from "../shared/types"
+import { useProducts } from "./useProducts"
+import { ProductCardProps } from "./ProductCard"
 
 jest.mock("./useProducts", () => ({ useProducts: jest.fn() }))
 const useProductsMock = useProducts as unknown as jest.Mock<
