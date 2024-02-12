@@ -3,9 +3,9 @@ import { ProductCard } from "./ProductCard"
 import { useCartContext } from "../CartContext"
 import { Product } from "../shared/types"
 
-jest.mock("../CartContext", () => {
-  useCartContext: jest.fn()
-})
+jest.mock("../CartContext", () => ({
+  useCartContext: jest.fn(),
+}))
 
 const useCartContextMock = useCartContext as unknown as jest.Mock<
   Partial<ReturnType<typeof useCartContext>>

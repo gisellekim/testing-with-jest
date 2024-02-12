@@ -4,7 +4,9 @@ import { Category } from "../shared/types"
 import { useProducts } from "./useProducts"
 import { ProductCardProps } from "./ProductCard"
 
-jest.mock("./useProducts", () => ({ useProducts: jest.fn() }))
+jest.mock("./useProducts", () => ({
+  useProducts: jest.fn(),
+}))
 const useProductsMock = useProducts as unknown as jest.Mock<
   Partial<ReturnType<typeof useProducts>>
 >
@@ -37,7 +39,13 @@ describe("Home", () => {
     it("renders categories with products", () => {
       const category: Category = {
         name: "Category Giselle",
-        items: [{ name: "Product Giselle", price: 50, image: "/product.jpg" }],
+        items: [
+          {
+            name: "Product Giselle",
+            price: 55,
+            image: "/product.jpg",
+          },
+        ],
       }
 
       useProductsMock.mockReturnValue({
@@ -47,8 +55,9 @@ describe("Home", () => {
       })
 
       const { container } = render(<Home />)
+
       expect(container.innerHTML).toMatch("Category Giselle")
-      expect(container.innerHTML).toMatch("Product Giselle 50 /product.jpg")
+      expect(container.innerHTML).toMatch("Product Giselle 55 /product.jpg")
     })
   })
 
@@ -59,8 +68,9 @@ describe("Home", () => {
         isLoading: false,
         error: true,
       })
+
+      const { container } = render(<Home />)
+      expect(container.innerHTML).toMatch("Error")
     })
-    const { container } = render(<Home />)
-    expect(container.innerHTML).toMatch("Error")
   })
 })
